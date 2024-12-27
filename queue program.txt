@@ -1,0 +1,48 @@
+#include<stdio.h>
+#define MAX_SIZE 20
+int Q[MAX_SIZE],font=-1,rear=-1;
+void enqueue(int ele);
+void display();
+void main()
+{
+  int ele;
+  printf("Enter Element:\n");
+  scanf("%d",&ele);
+  while(ele!=-1)
+  {
+    enqueue(ele);
+    printf("Enter Element:\n");
+    scanf("%d",&ele);
+  }
+  display();
+}
+void enqueue(int ele)
+{
+  if(rear==MAX_SIZE-1)
+  {
+    printf("Queue is full");
+    return;
+  }
+  if(font==-1)
+  {
+    rear=font=0;
+  }
+  else
+  {
+    rear++;
+  }
+  Q[rear]=ele;
+}
+void display()
+{
+  if(font==-1)
+  {
+    printf("Queue Elements are:");
+  }
+  printf("queue elements:");
+  for(int i=font;i<=rear;i++)
+  {
+    printf("%d ",Q[i]);
+  }
+  printf("\n");
+}
